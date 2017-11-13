@@ -1,28 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package osproject1;
-
-/**
- *
- * @author mahmoud
- */
+import java.util.Random;
 public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SortMergeClass cc = new SortMergeClass(new int[]{-100, 5, -1, -10,
-            -2, 10, 1000, 50, -10, -2, 0, -500});
-        
+        Random rn = new Random();
+        int[] array = new int[100];
+        int[] array2 = new int[100];
+        for(int i=0;i<array.length;i++)
+            array[i] = rn.nextInt(10000) - 5000;
+        for(int i=0;i<array2.length;i++)
+            array2[i] = rn.nextInt(10000) - 5000;
+        SortMergeClass cc = new SortMergeClass(array);
         cc.sortArray();
-        
+        SortMergeClass2 cc2 = new SortMergeClass2(array2);
+        cc2.sortArray();
         final int[] finalSortedArray = cc.getOutput();
+        final int[] finalSortedArray2 = cc2.getOutput();
         for(int i = 0; i < finalSortedArray.length; i++) {
             System.out.print(finalSortedArray[i] + " ");
+        }
+        System.out.println();
+        System.out.println("--------------------------------------------------------------------------------------------");
+        for(int i = 0; i < finalSortedArray2.length; i++) {
+            System.out.print(finalSortedArray2[i] + " ");
         }
         
         System.out.println();
